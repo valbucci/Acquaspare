@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>
-      AcquaSpare
-    </title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- FontAwesome -->
-    <link rel="stylesheet" href="../font-awesome-4.6.3/font-awesome-4.6.3/css/font-awesome.min.css">
+	<meta charset="utf-8">
+	<title>
+	  AcquaSpare
+	</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <!-- FontAwesome -->
+	<link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
       <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
       <!-- Bootstrap -->

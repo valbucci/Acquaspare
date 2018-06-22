@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Vendita ricambistica box doccia">
       <!-- FontAwesome -->
-      <link rel="stylesheet" href="font-awesome-4.6.3/font-awesome-4.6.3/css/font-awesome.min.css">
+      <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
       <!-- Favicon -->
       <!-- for FF, Chrome, Opera -->
       <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
