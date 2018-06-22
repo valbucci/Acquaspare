@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- FontAwesome -->
-    <link rel="stylesheet" href="../font-awesome-4.6.3/font-awesome-4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../font-awesome-4.6.3/css/font-awesome.min.css">
       <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
       <!-- Bootstrap -->
@@ -23,7 +23,8 @@
       <![endif]-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-      <script src="js/ajaxupload.js" type="text/javascript"></script><script src="//code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="js/ajaxupload.js" type="text/javascript"></script>
+      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
       <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
       <script src="js/custom.js"></script>
       <script src="jquery.redirect.js"></script>
