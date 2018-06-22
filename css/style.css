@@ -1,0 +1,392 @@
+body{
+  background-color: rgb(247, 250, 250);
+}
+#carouselimage{
+  margin-left:auto;
+  margin-right:auto;
+}
+#myCarousel{
+  margin-top:-20px;
+}
+#oncarousel{
+  background-color:black;
+  background-color:rgba(0,0,0,0.5);
+  margin-bottom:-20px;
+}
+
+#ctn1{
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+  border:1px solid rgb(180, 183, 185);
+  border-radius: 5px;
+  background-color: rgb(247, 247, 250);
+  padding-bottom:10px;
+}
+#titlereg{
+  text-align: center;
+  font-weight: bold;
+}
+#reglbl{
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+}
+#cnt1 #campi{
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+}
+#btnreg{
+  text-align: center;
+}
+#btnreg input{
+  vertical-align: center;
+}
+#prodname, #dispsm{
+  float:left;
+}
+#campi select{
+  font-size: 15px;
+  height:35px;
+  border:1px solid rgb(217, 217, 222);
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 100px) and (max-width: 420px){
+  #alert{
+    width:80%;
+    }
+}
+@media screen and (min-width: 420px) and (max-width: 1024px){
+  #alert{
+    width:50%;
+  }
+}
+@media screen and (min-width: 1024px){
+  #alert{
+    width:40%;
+  }
+}
+#imgupld{
+  font-size: 15px;
+  height:35px;
+  border:1px solid rgb(217, 217, 222);
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width:100px) and (max-width:420px){
+  #dispsm{
+    width:40%;
+    margin-right:5%;
+  }
+  #prodname{
+    width:50%;
+    margin-left:5%;
+  }
+  #price{
+    width:20%
+    margin-right:auto;
+  }
+  #weightprod{
+    width:20%;
+  }
+  #codprod{
+    width:50%;
+    margin-left: auto;
+  }
+  #proddesc{
+    width:90% !important;
+  }
+  .droppable{
+    width:90%;
+  }
+  #carousel-custom {
+      width: 90%;
+  }
+}
+@media screen and (min-width:420px) and (max-width:1024px){
+  #dispsm{
+    width:25%;
+    margin-right:15%;
+  }
+  #prodname{
+    width:45%;
+    margin-left:15%;
+  }
+  #price{
+    width:15%
+    margin-right:auto;
+  }
+  #weightprod{
+    width:15%
+  }
+  #codprod{
+    width:35%;
+    margin-left: auto;
+  }
+  #proddesc{
+    width:90% !important;
+  }
+  .droppable{
+    width:70%;
+  }
+  #carousel-custom {
+      width: 80%;
+  }
+}
+@media screen and (min-width:1024px){
+  #dispsm{
+    width:20%;
+    margin-right:20%;
+  }
+  #prodname{
+    width:40%;
+    margin-left:20%;
+  }
+  #price{
+    width:15%
+    margin-right:auto;
+  }
+  #weightprod{
+    width:15%;
+  }
+  #codprod{
+    width:30%;
+    margin-left: auto;
+  }
+  #proddesc{
+    width:65% !important;
+  }
+  .droppable{
+    width:60%;
+  }
+  #carousel-custom {
+      width: 70%;
+  }
+}
+
+#proddesc{
+  height:200px !important;
+  resize: none;
+  font-size: 15px;
+  border:1px solid rgb(217, 217, 222);
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+#strow #elementrow{
+  display:inline-block;
+  float:left;
+}
+#clearBox{
+  clear:left;
+}
+#strow{
+  width:75%;
+  margin-bottom: 20px;
+}
+#center{
+  margin-left: auto;
+  margin-right: auto;
+  display: table;
+  margin: 0 auto;
+}
+#dtls{
+  margin-bottom:-30px;
+}
+#paneldesc{
+  margin-left: auto;
+  margin-right: auto;
+  width:75%;
+  text-align:left;
+}
+.imagebackground{
+  width:128px;
+  height:128px;
+  white-space: nowrap;
+  text-align: center;
+  /*border: 1px solid rgb(217, 217, 222);*/
+  border-radius: 100%;
+  margin: 1em 0;
+  overflow:hidden;
+}
+.imagebackground img{
+}
+
+#elementrow img{
+  vertical-align: middle;
+  max-height: 128px;
+  max-width: 128px;
+}
+#btnedit{
+  z-index: 2;
+  position:absolute;
+  width:150px;
+  height:30px;
+  float:left;
+  margin-left:-10px;
+  text-align: left;
+  margin-top: -20px;
+}
+.helper {
+    display: inline-block;
+    vertical-align: middle;
+}
+span.helper {
+    height:100%;
+}
+#btnedit2{
+  width:35px;
+  height:30px;
+  margin-left:-75px;
+  margin-right: 35px;
+  text-align: left;
+}
+#btnedit3{
+  margin-top:10px;
+}
+#btnedit4{
+  width:35px;
+  height:30px;
+  text-align: left;
+}
+.panel-heading{
+  text-align: center;
+}
+#paneldesc{
+  margin-left: auto;
+  margin-right: auto;
+
+}
+h4 {
+    margin: 20px 10px 10px;
+}
+p {
+    margin: 10px;
+}
+
+#carousel-example-generic {
+    margin: 20px auto;
+    width: 400px;
+}
+
+#carousel-custom {
+    margin: 20px auto;
+}
+#carousel-custom .carousel-indicators {
+    margin: 10px 0 0;
+    overflow: auto;
+    position: static;
+    text-align: left;
+    white-space: nowrap;
+    width: 100%;
+}
+#carousel-custom .carousel-indicators li {
+    background-color: transparent;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    display: inline-block;
+    height: auto;
+    margin: 0 !important;
+    width: auto;
+}
+#carousel-custom .carousel-indicators li img {
+    display: block;
+    opacity: 0.5;
+}
+#carousel-custom .carousel-indicators li.active img {
+    opacity: 1;
+}
+#carousel-custom .carousel-indicators li:hover img {
+    opacity: 0.75;
+}
+#carousel-custom .carousel-outer {
+    position: relative;
+}
+.imgcar{
+    vertical-align: middle;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#shortinfo{
+    margin-left: -20px;
+}
+#pricenavailable{
+    width:130px;
+}
+
+.hide{
+}
+
+.nooverflow{
+  overflow: hidden;
+}
+#ctn2{
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+  border:1px solid rgb(180, 183, 185);
+  border-radius: 5px;
+  background-color:white;
+  padding-bottom:10px;
+}
+#ctn3{
+  margin-left:auto;
+  margin-right:auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  border:1px solid rgb(180, 183, 185);
+  border-radius: 5px;
+  background-color:white;
+  padding-bottom:10px;
+  font-size: 30px;
+}
+.pointer-cursor{
+	cursor:pointer;
+}
+.arrow-cursor{
+	cursor:context-menu;
+}
+.truncate{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.zoomed-prod {
+	margin: 0;
+	width:100%;
+	height: 100vh;
+	position: absolute;
+	overflow-y: hidden;
+	justify-content:center;
+	align-items:center;
+}
+.zoomed-prod .modal-content{
+	height: 80vh;
+	width: 80vw;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+.zoomed-prod .modal-content button.close{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
