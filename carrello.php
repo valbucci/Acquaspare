@@ -1,3 +1,9 @@
+<?php
+	namespace AQSP;
+	require_once './autoload.php';
+	use AQSP\Database as DB;
+	$conn = DB::init();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,22 +48,19 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="index.php">
-          <?php
-            session_start();
-            require 'config.php';
-            require 'connect.php';
-            list($id, $nome, $prezzo, $descrizione, $disponibili, $codice)=mysql_fetch_array(mysql_query("SELECT id AS id, nome, prezzo, descrizione, disponibili, codice FROM prodotti WHERE id='".$_SESSION['prodid']."'"));
-
-            if(isset($_SESSION['id'])){
-              $row = mysql_fetch_assoc(mysql_query("SELECT * FROM utenti WHERE id='".$_SESSION['id']."'"));
-              echo $row['username'];
-            }else{
-              echo 'Acquaspare';
-            }
-          ?>
+			<?php
+				session_start();
+				if(isset($_SESSION['id'])){
+					$sql = "SELECT * FROM utenti WHERE id='".$_SESSION['id']."'";
+					$row = $conn->querySelect($sql)[0];
+					echo $row['username'];
+				}else{
+					echo 'Acquaspare';
+				}
+			?>
           </a>
         </div>
-
+		<?php /*
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
@@ -114,8 +117,10 @@
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
+		*/ ?>
       </div><!-- /.container-fluid -->
     </nav><!--Of navbar -->
+	<?php /*
     <div class="container">
       <?php
       if(!isset($_SESSION['id'])){
@@ -256,5 +261,6 @@
       </div>
     </div>
     </div>
+	*/ ?>
   </body>
 </html>
