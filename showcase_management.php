@@ -196,7 +196,7 @@
                   </div>
                   <div id="pricenavailable" style="float:left; margin-top:14px;">
                     <div class="panel panel-default">
-                      <div id="price" class="panel-heading"><h3>&#8364 <?php echo $row[2]; ?></h3></div>
+                      <div id="price" class="panel-heading"><h3>&#8364; <?php echo $row[2]; ?></h3></div>
                       <div class="panel-body"><?php
                         if($row[4]=="Disponibile"){
                           echo '<div style="margin-right:auto; margin-left:auto;" class="label label-success">'.$row[4].'</div>';
