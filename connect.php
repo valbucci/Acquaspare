@@ -38,9 +38,6 @@ require_once './config.php';
 	- verify.php
 	- visualizza_prodotto.php
 */
-$updated = array();
-$updated[] = '/carrello.php';
-$updated[] = '/navbar.php';
 if(in_array($_SERVER['PHP_SELF'], $updated)){
 	// AGGIORNAMENTO COLLEGAMENTO AL DB
 	$mysqli = new mysqli($DB_host, $DB_user, $DB_password, $DB_name);
