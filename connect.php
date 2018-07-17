@@ -38,10 +38,8 @@ require_once './config.php';
 	- verify.php
 	- visualizza_prodotto.php
 */
-if(in_array($_SERVER['PHP_SELF'], $updated)){
-	// AGGIORNAMENTO COLLEGAMENTO AL DB
-	$mysqli = new mysqli($DB_host, $DB_user, $DB_password, $DB_name);
-	if($mysqli->connect_errno) {
-		die("Errore nello stabilire una connessione con il Database");
-	}
+$mysqli = new mysqli($DB_host, $DB_user, $DB_password, $DB_name);
+if($mysqli->connect_errno) {
+	die("Errore nello stabilire una connessione con il Database");
+}
 ?>
