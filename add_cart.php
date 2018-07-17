@@ -1,21 +1,22 @@
 <?php
-require 'config.php';
-require 'connect.php';
-
+require $_SERVER['DOCUMENT_ROOT'].'/connect.php';
 session_start();
 
 $iduser = $_SESSION['id'];
 $idprod = $_POST['idprod'];
 $howmany= $_POST['howmany'];
 
-echo $idprod;
-
-if(mysql_num_rows(mysql_query("SELECT * FROM carrello WHERE iduser='$iduser' AND idprod='$idprod'"))>0){
-  $oldhowmany=mysql_fetch_row(mysql_query("SELECT howmany FROM carrello WHERE iduser='$iduser' AND idprod='$idprod'"));
-  $newhowmany=$oldhowmany[0]+$howmany;
-  mysql_query("UPDATE carrello SET howmany='$newhowmany' WHERE iduser='$iduser' AND idprod='$idprod'");
+$edit = "failure";
+$sql = "SELECT * FROM carrello WHERE iduser='$iduser' AND idprod='$idprod'";
+$res = $mysqli->query($sql);
+if($res->num_rows>0){
+	$oldhowmany=$res->fetch_row();
+	$newhowmany=$oldhowmany[0]+$howmany;
+	$sqlu = "UPDATE carrello SET howmany='$newhowmany' WHERE iduser='$iduser' AND idprod='$idprod'";
+	$res2 = $mysqli->query($sqlu);
 }else{
-  mysql_query("INSERT INTO carrello (iduser, idprod, howmany) VALUES ('$iduser', '$idprod', '$howmany')");
+	$sqli = "INSERT INTO carrello (iduser, idprod, howmany) VALUES ('$iduser', '$idprod', '$howmany')";
+	$res2 = $mysqli->query($sqli);
 }
-header('Location: lista_prodotti.php');
+header('Location: lista_prodotti.php'.(($res2) ?: ('?result=fail'));
 ?>
