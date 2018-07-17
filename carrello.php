@@ -1,8 +1,5 @@
 <?php
-	namespace AQSP;
-	require_once './autoload.php';
-	use AQSP\Database as DB;
-	$conn = DB::init();
+	require_once './connect.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,15 +49,19 @@
 				session_start();
 				if(isset($_SESSION['id'])){
 					$sql = "SELECT * FROM utenti WHERE id='".$_SESSION['id']."'";
-					$row = $conn->querySelect($sql)[0];
-					echo $row['username'];
+					if($res = $mysqli->query($sql)) {
+						$utente = $res->fetch_assoc();
+						echo $utente['username'];
+					}else{
+						echo $mysqli->error();
+					}
+
 				}else{
 					echo 'Acquaspare';
 				}
 			?>
           </a>
         </div>
-		<?php /*
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
@@ -73,9 +74,10 @@
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     Carrello
                       <?php
-                        $prod =   mysql_query("SELECT * FROM carrello WHERE iduser='".$_SESSION['id']."'");
+					  	$sql = "SELECT * FROM carrello WHERE iduser='".$_SESSION['id']."'";
+                        $prod =   $mysqli->query($sql);
                         $i    =   0;
-                        while($prod_num = mysql_fetch_assoc($prod)){
+                        while($prod_num = $prod->fetch_assoc()){
                           $i  +=  $prod_num['howmany'];
                         }
                         if($i!=0){
@@ -117,10 +119,8 @@
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
-		*/ ?>
       </div><!-- /.container-fluid -->
     </nav><!--Of navbar -->
-	<?php /*
     <div class="container">
       <?php
       if(!isset($_SESSION['id'])){
@@ -146,14 +146,16 @@
             <?php
             $totprice=0.00;
             settype($totprice, "float");
-            $result = mysql_query("SELECT * FROM carrello WHERE iduser='".$_SESSION['id']."'");
-            while($rowcart = mysql_FETCH_ROW($result)){
+			$sql = "SELECT * FROM carrello WHERE iduser='".$_SESSION['id']."'";
+            $res = $mysqli->query($sql);
+            while($rowcart = $res->fetch_array()){
               $idprod       = $rowcart[2];
               $howmany      = $rowcart[3];
-              $query        = mysql_query("SELECT * FROM prodotti WHERE id='".$idprod."'");
-              $row          = mysql_FETCH_ROW($query);
+			  $sql			= "SELECT * FROM prodotti WHERE id='".$idprod."'";
+              $res          = $mysqli->query($sql);
+              $row          = $res->fetch_array();
               $prezzo       = $row[2]*$howmany;
-              $totprice+=$prezzo;
+			  $totprice 	+= $prezzo;
             }
             ?>
             <a class="btn btn-success<?php if($totprice!=0){ echo ' cart';} ?>" <?php if($totprice==0){echo 'disabled';} ?>>
@@ -167,11 +169,26 @@
           </div>
         </div>
         <hr>
-      </div>
-      <div class="panel-body">
-      <?php
-      if(mysql_num_rows($result)==0){
-      ?>
+		<?php
+			// se non è impostato il codice fiscale propongo un form per l'inserimento
+			if(empty($utente['cf'])) {
+				?>
+				<div class="row">
+					<div class="alert alert-warning">
+						<h3>A quanto pare non hai ancora fornito il tuo codice fiscale...</h3>
+						<hr>
+						<p>Ne abbiamo bisogno per rilasciare la fattura. Puoi inserirlo attraverso il campo sottostante</p>
+					</div>
+				</div>
+				<div class="row">
+					<form class="col-sm-12" method="GET" action="redirect_group/add_cf.php">
+						<input class="form-control" type="text" placeholder="Inserisci qui il codice fiscale">
+					</form>
+				</div>
+				<?php
+			}
+			if($res->num_rows == 0) {
+		?>
       <div class="row">
         <div class="panel panel-body" style="width:100%;">
           <blockquote class="h2"><i class="fa fa-meh-o" aria-hidden="true"></i> Oops... A quanto pare il carrello è <strong>Vuoto</strong>...</blockquote>
@@ -179,14 +196,14 @@
       </div>
       <?php
       }
-      $result = mysql_query("SELECT * FROM carrello WHERE iduser='".$_SESSION['id']."'");
-      while($rowcart = mysql_FETCH_ROW($result)){
-        $transation   = $rowcart[0];
+      $res = $mysqli->query("SELECT * FROM carrello WHERE iduser='".$_SESSION['id']."'");
+      while($rowcart = $res->fetch_row()){
+        $transaction  = $rowcart[0];
         $iduser       = $rowcart[1];
         $idprod       = $rowcart[2];
         $howmany      = $rowcart[3];
-        $query        = mysql_query("SELECT * FROM prodotti WHERE id='".$idprod."'");
-        $row          = mysql_FETCH_ROW($query);
+        $res2         = $mysqli->query("SELECT * FROM prodotti WHERE id='".$idprod."'");
+        $row          = $res2->fetch_row();
         $prodid       = $row[0];
         $nome         = $row[1];
         $prezzo       = $row[2]*$howmany;
@@ -213,7 +230,7 @@
                         </mark>
                         <small style="font-size:40px;">    |   </small>
                         <span class="label label-default" style="font-size:20px;">
-                          &#8364 <?php echo $prezzo ?>
+                          &#8364; <?php echo $prezzo ?>
                         </span>
                     </div>
                   </div>
@@ -261,6 +278,5 @@
       </div>
     </div>
     </div>
-	*/ ?>
   </body>
 </html>
